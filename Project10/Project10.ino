@@ -16,7 +16,7 @@ int motorDirection = 1;
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(directionSwithPin, INPUT);
+  pinMode(directionSwitchPin, INPUT);
   pinMode(onOffSwitchStatePin, INPUT);
   pinMode(controlPin1, OUTPUT);
   pinMode(controlPin2, OUTPUT);
@@ -38,13 +38,13 @@ void loop() {
       motorEnabled = !motorEnabled;
     }
   }
-  if (directionSwitchState != previousDirectionSwitchState){
-    if (directionSwitchState == HIGH) {
+  if(directionSwitchState != previousDirectionSwitchState){
+    if(directionSwitchState == HIGH) {
       motorDirection = !motorDirection;
     }
   }
   
-  if (motorDirection == 1) {
+  if(motorDirection == 1) {
     digitalWrite(controlPin1, HIGH);
     digitalWrite(controlPin2, LOW);
   }
@@ -54,7 +54,7 @@ void loop() {
     digitalWrite(controlPin2, HIGH);
   }
   
-  if (motorEnabled == 1){
+  if(motorEnabled == 1){
     analogWrite(enablePin, motorSpeed);
   }
   else {
